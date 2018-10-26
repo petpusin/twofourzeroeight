@@ -48,6 +48,8 @@
             this.btnUp = new System.Windows.Forms.Button();
             this.btnRight = new System.Windows.Forms.Button();
             this.btnDown = new System.Windows.Forms.Button();
+            this.ScoreBoxLabal = new System.Windows.Forms.Label();
+            this.GameoverBox = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbl00
@@ -298,11 +300,35 @@
             this.btnDown.UseVisualStyleBackColor = true;
             this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
             // 
+            // ScoreBoxLabal
+            // 
+            this.ScoreBoxLabal.AutoSize = true;
+            this.ScoreBoxLabal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.ScoreBoxLabal.Location = new System.Drawing.Point(267, 391);
+            this.ScoreBoxLabal.Name = "ScoreBoxLabal";
+            this.ScoreBoxLabal.Size = new System.Drawing.Size(65, 25);
+            this.ScoreBoxLabal.TabIndex = 20;
+            this.ScoreBoxLabal.Text = "score";
+            // 
+            // GameoverBox
+            // 
+            this.GameoverBox.AutoSize = true;
+            this.GameoverBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.GameoverBox.ForeColor = System.Drawing.Color.Red;
+            this.GameoverBox.Location = new System.Drawing.Point(68, 326);
+            this.GameoverBox.Name = "GameoverBox";
+            this.GameoverBox.Size = new System.Drawing.Size(210, 42);
+            this.GameoverBox.TabIndex = 21;
+            this.GameoverBox.Text = "Game Over";
+            this.GameoverBox.Visible = false;
+            // 
             // TwoZeroFourEightView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(344, 428);
+            this.Controls.Add(this.GameoverBox);
+            this.Controls.Add(this.ScoreBoxLabal);
             this.Controls.Add(this.btnDown);
             this.Controls.Add(this.btnRight);
             this.Controls.Add(this.btnUp);
@@ -326,6 +352,7 @@
             this.Name = "TwoZeroFourEightView";
             this.Text = "Form1";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -351,6 +378,8 @@
         private System.Windows.Forms.Button btnUp;
         private System.Windows.Forms.Button btnRight;
         private System.Windows.Forms.Button btnDown;
+        private System.Windows.Forms.Label ScoreBoxLabal;
+        private System.Windows.Forms.Label GameoverBox;
     }
 }
 

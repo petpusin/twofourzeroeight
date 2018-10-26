@@ -28,6 +28,11 @@ namespace twozerofoureight
         public void Notify(Model m)
         {
             UpdateBoard(((TwoZeroFourEightModel)m).GetBoard());
+            ScoreBoxLabal.Text = ((TwoZeroFourEightModel)m).GetScore().ToString();
+            if (((TwoZeroFourEightModel)m).Gameover()) {
+                GameoverBox.Visible = true;
+            }
+            
         }
 
         private void UpdateTile(Label l, int i)
@@ -98,6 +103,33 @@ namespace twozerofoureight
         {
             controller.ActionPerformed(TwoZeroFourEightController.DOWN);
         }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            
+            switch (keyData)
+            {
+                case Keys.Up:
+                    controller.ActionPerformed(TwoZeroFourEightController.UP);
+                    
+                    break;
+                case Keys.Down:
+                    controller.ActionPerformed(TwoZeroFourEightController.DOWN);
+                    break;
+                case Keys.Left:
+                    controller.ActionPerformed(TwoZeroFourEightController.LEFT);
+                    break;
+                case Keys.Right:
+                    controller.ActionPerformed(TwoZeroFourEightController.RIGHT);
+                    break;
+                
+               
+            }
+
+            return true;
+        }
+
+        
 
     }
 }

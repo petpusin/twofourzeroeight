@@ -12,6 +12,7 @@ namespace twozerofoureight
         protected int[,] board;
         protected Random rand;
         protected int[] range;
+        private int score = 0;
 
         public TwoZeroFourEightModel() : this(4)
         {
@@ -38,6 +39,18 @@ namespace twozerofoureight
         public int[,] GetBoard()
         {
             return board;
+        }
+        public int GetScore()
+        {
+            score = 0;
+            foreach (int n in board)
+            {
+
+                score = score + n;
+
+            }
+
+            return score;
         }
 
         private void AddRandomSlot()
@@ -99,6 +112,8 @@ namespace twozerofoureight
                 AddRandomSlot();
                 NotifyAll();
             }
+
+
         }
 
         public void PerformDown()
@@ -192,5 +207,49 @@ namespace twozerofoureight
             }
             HandleChanges(changed);
         }
+
+        public bool Gameover()
+        {
+            for (int i = 0; i < boardSize; i++)
+            {
+                for (int j = 0; j < boardSize; j++)
+                {
+                    if (board[i, j] == 0)
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            int tmp;
+            for (int i = 0; i < boardSize; i++)
+            {
+                for (int j = 0; j < boardSize; j++)
+                {
+                    tmp = board[i, j];
+                    if (i - 1 >= 0)
+                    {
+                        if (tmp == board[i - 1, j]) { return false; }
+                    }
+                    if (i + 1 <= 3)
+                    {
+                        if (tmp == board[i + 1, j]) { return false; }
+                    }
+                    if (j - 1 >= 0)
+                    {
+                        if (tmp == board[i, j - 1]) { return false; }
+                    }
+                    if (j + 1 <= 3)
+                    {
+                        if (tmp == board[i, j + 1]) { return false; }
+                    }
+                }
+            }
+
+            return true;
+        }
+
     }
+
+    
 }
